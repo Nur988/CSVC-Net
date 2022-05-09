@@ -17,7 +17,7 @@ from models import cnnlstm
 
 audio_dir = "/content/drive/MyDrive/PR/train/"  # directory where training data is stored
 file_names = [f for f in os.listdir(audio_dir) if ".wav" in f]
-#file_names=file_names[1:8000]
+file_names=file_names[1:800]
 _x = []
 _y = []
 
@@ -49,7 +49,7 @@ print("Size of Training Data:", np.shape(x_train))
 print("Size of Training Labels:", np.shape(y_train))
 print("Size of Test Data:", np.shape(x_test))
 print("Size of Test Labels:", np.shape(y_test))
-
+print(f"epoch is 15 and Reslstm")
 num_classes = 11
 
 y_train = keras.utils.to_categorical(y_train, num_classes)
@@ -71,7 +71,7 @@ model.fit(
     x_train,
     y_train,
     batch_size=20,
-    epochs=1,
+    epochs=15,
     verbose=1,
     validation_data=(x_test, y_test),
 )
