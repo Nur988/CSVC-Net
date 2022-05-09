@@ -15,9 +15,9 @@ from audiomentations import SpecCompose, SpecFrequencyMask
 from models import cnnlstm
 
 
-audio_dir = "path/to/trainingset/folder/"  # directory where training data is stored
+audio_dir = "/content/drive/MyDrive/PR/train/"  # directory where training data is stored
 file_names = [f for f in os.listdir(audio_dir) if ".wav" in f]
-file_names=file_names[1:8000]
+#file_names=file_names[1:8000]
 _x = []
 _y = []
 
@@ -71,15 +71,15 @@ model.fit(
     x_train,
     y_train,
     batch_size=20,
-    epochs=100,
+    epochs=1,
     verbose=1,
     validation_data=(x_test, y_test),
 )
 
 # save model and save model
 model_json = model.to_json()
-with open("model.json", "w") as json_file:
+with open("/content/drive/MyDrive/PR/model.json", "w") as json_file:
     json_file.write(model_json)
 
-model.save_weights("model.h5")
+model.save_weights("/content/drive/MyDrive/PR/model.h5")
 print("Saved model to disk")

@@ -10,16 +10,16 @@ from keras.models import model_from_json
 from sklearn.metrics import confusion_matrix
 
 # load model
-json_file = open("results/cnnlstm.json", "r")
+json_file = open("/content/drive/MyDrive/PR/model.json", "r")
 loaded_model_json = json_file.read()
 json_file.close()
 loaded_model = model_from_json(loaded_model_json)
 
 # load model weights
-loaded_model.load_weights("results/cnnlstm.h5")
+loaded_model.load_weights("/content/drive/MyDrive/PR/model.h5")
 print("Loaded model from disk")
 
-audio_dir = "path/to/testset/folder/"  # directory where the test set is stored
+audio_dir = "/content/drive/MyDrive/PR/test/"  # directory where the test set is stored
 file_names = [f for f in os.listdir(audio_dir) if ".wav" in f]
 length = []
 
