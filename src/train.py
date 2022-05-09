@@ -17,7 +17,7 @@ from models import cnnlstm
 
 audio_dir = "path/to/trainingset/folder/"  # directory where training data is stored
 file_names = [f for f in os.listdir(audio_dir) if ".wav" in f]
-
+file_names=file_names[1:8000]
 _x = []
 _y = []
 
